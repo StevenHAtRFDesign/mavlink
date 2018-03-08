@@ -4038,10 +4038,11 @@
       <field type="uint8_t" name="target_component">component ID of the target</field>
       <field type="uint16_t" name="sequence">sequence number (must match the one in LOGGING_DATA_ACKED)</field>
     </message>
-<message id="12000" name="ICE_ENGINE_DATA">
+    <message id="12000" name="ICE_ENGINE_DATA">
       <description>For reporting short-term internal combustion engine status</description>
-      <field type="uint16_t" name="ICEMotServoUS ">Output. Pulse Width Ch0. Petrol Engine Throttle</field>
-      <field type="uint16_t" name="DCMotServoUS ">Output ? Pulse Width Ch1 ? Electric Engine Throttle</field>
+      <field type="uint8_t" name="EngineNumber">The engine number</field>
+      <field type="uint16_t" name="ICEMotServoUS">Output. Pulse Width Ch0. Petrol Engine Throttle</field>
+      <field type="uint16_t" name="DCMotServoUS">Output ? Pulse Width Ch1 ? Electric Engine Throttle</field>
       <field type="float" name="ICERPM">Input ? Rate  (Freq) Ch0 ? Engine RPM</field>
       <field type="uint16_t" name="ThrustReqUS">Input ? Rate (Width) Ch1 ? Thrust Input (Will use CAN later)</field>
       <field type="uint16_t" name="IgnCutReqUS">Input ? Rate(Width) Ch2 ? Ignition Cut (Will use CAN later)  (also will be Pulse counter in Copter Monitor)</field>
@@ -4059,31 +4060,32 @@
     </message>
     <message id="12001" name="ICE_ENGINE_STATUS">
       <description>For reporting long-term internal combustion engine status/statistics</description>
+      <field type="uint8_t" name="EngineNumber">The engine number</field>
       <field type="uint8_t" name="Numof_Engines">Total Number of Engines</field>
       <field type="uint32_t[10]" name="ICE1000RPM">Engine RPM Bins ? mins in RPM bins(1000RPM) ? minutes uint32[10]</field>
       <field type="uint32_t[32]" name="ICEEng10degC">Temp Ch0 Bins ENGT ? seconds in 10 deg bins uint32[32]</field>
-    </message>
-    <message id="12002" name="ICE_ENGINE_EXH_TEMP_1">
+	</message>
+	<message id="12002" name="ICE_ENGINE_EXH_TEMP_1">
       <description>For reporting long-term internal combustion engine exhaust temperature status/statistics</description>
       <field type="uint8_t" name="EngineNumber">The engine number</field>
       <field type="uint32_t[50]" name="ICEExh10degC">Temp Ch0 Bins EXHT ? seconds in 10 deg bins, 0-500deg C</field>
-    </message>
-    <message id="12003" name="ICE_ENGINE_EXH_TEMP_2">
+	</message>
+	<message id="12003" name="ICE_ENGINE_EXH_TEMP_2">
       <description>For reporting long-term internal combustion engine exhaust temperature status/statistics</description>
       <field type="uint8_t" name="EngineNumber">The engine number</field>
       <field type="uint32_t[50]" name="ICEExh10degC">Temp Ch0 Bins EXHT ? seconds in 10 deg bins, 500-990deg C</field>
-    </message>
-    <message id="12004" name="ICE_ENGINE_FAULT_STATS_1">
+	</message>
+	<message id="12004" name="ICE_ENGINE_FAULT_STATS_1">
       <description>For reporting long-term internal combustion engine fault status/statistics</description>
       <field type="uint8_t" name="EngineNumber">The engine number</field>
       <field type="uint32_t" name="FaultBits">Fault Bits 1? 32 bit</field>
       <field type="uint32_t[32]" name="FaultStartSec"></field>
-    </message>
-    <message id="12005" name="ICE_ENGINE_FAULT_STATS_2">
+	</message>
+	<message id="12005" name="ICE_ENGINE_FAULT_STATS_2">
       <description>For reporting long-term internal combustion engine fault status/statistics</description>
       <field type="uint8_t" name="EngineNumber">The engine number</field>
       <field type="uint32_t" name="FaultBits">Fault Bits 2? 32 bit</field>
       <field type="uint32_t[32]" name="FaultStartSec"></field>
-    </message>
+	</message>
   </messages>
 </mavlink>
