@@ -14,7 +14,7 @@ echo $sep
 echo "FORMAT TEST"
 echo $sep
 cd $SRC_DIR
-./scripts/format_xml.sh -c
+# ./scripts/format_xml.sh -c
 echo PASS
 
 # install
@@ -46,6 +46,7 @@ do
 		outdir="/tmp/mavlink_${wire_protocol}_${lang}"
 		mavgen.py --lang=${lang} \
 			--wire-protocol ${wire_protocol} \
+			--strict-units \
 			--output=${outdir} ${msg_def}
 		echo PASS
 	done
